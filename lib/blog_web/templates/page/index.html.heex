@@ -1,0 +1,8 @@
+<%= for post <- @posts do %>
+  <article class="row">
+    <h2><%= post.title %></h2>
+    <p><%= Date.to_string(post.date) %></p>
+    <p><%= post.intro %></p>
+    <p><a href={Routes.page_path(@conn, :show, post.slug)}>Read post</a></p>
+  </article>
+<% end %>

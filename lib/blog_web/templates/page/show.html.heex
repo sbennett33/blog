@@ -1,0 +1,6 @@
+<p><a href={Routes.page_path(@conn, :index)}>&laquo; Back to index</a></p>
+<article>
+  <h1><%= @post.title %></h1>
+  <p><%= Date.to_string(@post.date) %></p>
+  <%= raw(@post.content) %>
+</article>
