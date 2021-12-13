@@ -1,53 +1,28 @@
 defmodule Blog.Repo do
-  use GenServer
+  alias Blog.Post
 
-  alias Blog.Crawler
+  use NimblePublisher,
+    build: Post,
+    from: Application.app_dir(:blog, "priv/posts/**/*.md"),
+    as: :posts,
+    highlighters: [:makeup_elixir],
+    earmark_options: [footnotes: true]
 
-  def start_link(opts \\ []) do
-    GenServer.start_link(__MODULE__, opts, name: __MODULE__)
-  end
+  # The @posts variable is first defined by NimblePublisher.
+  # Let's further modify it by sorting all posts by descending date.
+  @posts Enum.sort_by(@posts, & &1.date, {:desc, Date})
 
-  def get_by_slug(slug) do
-    GenServer.call(__MODULE__, {:get_by_slug, slug})
-  end
+  # Let's also get all tags
+  @tags @posts |> Enum.flat_map(& &1.tags) |> Enum.uniq() |> Enum.sort()
 
-  def list() do
-    GenServer.call(__MODULE__, :list)
-  end
+  # And finally export them
+  def all_posts, do: @posts
+  def all_tags, do: @tags
 
-  def init(opts) do
-    posts_path = Keyword.get(opts, :path)
-
-    state = %{
-      path: posts_path,
-      posts: []
-    }
-
-    {:ok, state, {:continue, :compile_posts}}
-  end
-
-  def handle_continue(:compile_posts, %{path: path}) do
-    posts = Crawler.crawl(path)
-
-    state = %{
-      path: path,
-      posts: posts
-    }
-
-    {:noreply, state}
-  end
-
-  def handle_call({:get_by_slug, slug}, _, %{posts: posts} = state) do
-    response =
-      case Enum.find(posts, fn post -> post.slug == slug end) do
-        nil -> {:error, :not_found}
-        post -> {:ok, post}
-      end
-
-    {:reply, response, state}
-  end
-
-  def handle_call(:list, _, %{posts: posts} = state) do
-    {:reply, {:ok, posts}, state}
+  def get_post(id) do
+    case Enum.find(all_posts(), &(&1.id == id)) do
+      nil -> {:error, :not_found}
+      post -> {:ok, post}
+    end
   end
 end

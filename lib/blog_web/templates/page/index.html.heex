@@ -1,8 +1,24 @@
+<h1 class="text-5xl font-extrabold">Recent Posts</h1>
+
 <%= for post <- @posts do %>
-  <article class="row">
-    <h2><%= post.title %></h2>
-    <p><%= Date.to_string(post.date) %></p>
-    <p><%= post.intro %></p>
-    <p><a href={Routes.page_path(@conn, :show, post.slug)}>Read post</a></p>
-  </article>
+  <div id={post.id} class="p-6 border-t-2 mt-6">
+    <h2 class="text-xl font-bold">
+      <%= link post.title, to: Routes.page_path(@conn, :show, post)%>
+    </h2>
+
+    <p>
+      <time><%= post.date %></time>
+    </p>
+
+    <div class="flex mt-2">
+      <%= for tag <- post.tags do %>
+        <div class="bg-indigo-500 text-white text-xs font-extrabold rounded-full py-1 px-2 mr-2"><%= tag %></div>
+      <% end %>
+    </div>
+
+
+    <div class="mt-2">
+      <%= raw post.description %>
+    </div>
+  </div>
 <% end %>

@@ -14,13 +14,6 @@ defmodule BlogWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", BlogWeb do
-    pipe_through :browser
-
-    get "/", PageController, :index
-    get "/:slug", PageController, :show
-  end
-
   # Other scopes may use custom stacks.
   # scope "/api", BlogWeb do
   #   pipe_through :api
@@ -52,5 +45,12 @@ defmodule BlogWeb.Router do
 
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
+  end
+
+  scope "/", BlogWeb do
+    pipe_through :browser
+
+    get "/", PageController, :index
+    get "/:id", PageController, :show
   end
 end

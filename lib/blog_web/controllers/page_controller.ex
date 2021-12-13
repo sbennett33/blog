@@ -6,12 +6,12 @@ defmodule BlogWeb.PageController do
   action_fallback BlogWeb.FallbackController
 
   def index(conn, _params) do
-    {:ok, posts} = Blog.Repo.list()
+    posts = Blog.Repo.all_posts()
     render(conn, "index.html", posts: posts)
   end
 
-  def show(conn, %{"slug" => slug}) do
-    with {:ok, post} <- Repo.get_by_slug(slug) do
+  def show(conn, %{"id" => id}) do
+    with {:ok, post} <- Repo.get_post(id) do
       render(conn, "show.html", post: post)
     end
   end

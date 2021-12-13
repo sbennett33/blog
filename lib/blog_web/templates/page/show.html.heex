@@ -1,6 +1,8 @@
-<p><a href={Routes.page_path(@conn, :index)}>&laquo; Back to index</a></p>
-<article>
-  <h1><%= @post.title %></h1>
-  <p><%= Date.to_string(@post.date) %></p>
-  <%= raw(@post.content) %>
+<%= link "← All posts", to: Routes.page_path(@conn, :index)%>
+<article class=" mt-6">
+  <h1 class="text-5xl font-extrabold"><%= @post.title %></h1>
+
+  <div class="prose prose-indigo mx-auto mt-8 pb-12">
+    <%= raw @post.body %>
+  </div>
 </article>

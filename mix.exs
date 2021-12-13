@@ -33,11 +33,12 @@ defmodule Blog.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:earmark, "~> 1.4"},
       {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
       {:floki, ">= 0.30.0", only: :test},
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
+      {:makeup_elixir, "~> 0.15.2"},
+      {:nimble_publisher, "~> 0.1.2"},
       {:phoenix, "~> 1.6.2"},
       {:phoenix_html, "~> 3.0"},
       {:phoenix_live_dashboard, "~> 0.5"},
@@ -60,7 +61,11 @@ defmodule Blog.MixProject do
   defp aliases do
     [
       setup: ["deps.get"],
-      "assets.deploy": ["esbuild default --minify", "phx.digest"]
+      "assets.deploy": [
+        "cmd --cd assets npm run deploy",
+        "esbuild default --minify",
+        "phx.digest"
+      ]
     ]
   end
 end

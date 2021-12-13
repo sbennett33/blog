@@ -16,7 +16,15 @@ config :blog, BlogWeb.Endpoint,
   secret_key_base: "RrrzrpuCWGYVLKwyhvcKjuVwRV67ghjvsMd+0p7NdhNDPrk9h4whYfIDHjr2Fecs",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    npx: [
+      "tailwindcss",
+      "--input=css/app.css",
+      "--output=../priv/static/assets/app.css",
+      "--postcss",
+      "--watch",
+      cd: Path.expand("../assets", __DIR__)
+    ]
   ]
 
 # ## SSL Support
@@ -50,7 +58,8 @@ config :blog, BlogWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/blog_web/(live|views)/.*(ex)$",
-      ~r"lib/blog_web/templates/.*(eex)$"
+      ~r"lib/blog_web/templates/.*(eex)$",
+      ~r"posts/*/.*(md)$"
     ]
   ]
 
