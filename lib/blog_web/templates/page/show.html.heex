@@ -1,8 +1,7 @@
-<%= link "← All posts", to: Routes.page_path(@conn, :index)%>
-<article class=" mt-6">
-  <h1 class="text-5xl font-extrabold"><%= @post.title %></h1>
+<article class="lg:mt-6">
+  <h1 class="text-3xl lg:text-4xl font-extrabold"><%= @post.title %></h1>
 
-  <div class="prose prose-indigo mx-auto mt-8 pb-12">
+  <div class="prose prose-zinc prose-sm md:prose-lg font-serif mx-auto mt-4 lg:mt-8 pb-12">
     <%= raw @post.body %>
   </div>
 </article>

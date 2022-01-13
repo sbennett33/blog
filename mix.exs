@@ -39,7 +39,7 @@ defmodule Blog.MixProject do
       {:jason, "~> 1.2"},
       {:makeup_elixir, "~> 0.15.2"},
       {:nimble_publisher, "~> 0.1.2"},
-      {:phoenix, "~> 1.6.2"},
+      {:phoenix, "~> 1.6.6"},
       {:phoenix_html, "~> 3.0"},
       {:phoenix_live_dashboard, "~> 0.5"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},

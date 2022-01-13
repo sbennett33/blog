@@ -1,8 +1,9 @@
 %{
-title: "Hello World Again!",
+title: "This is a very long post title and I love it!",
 author: "Scott Bennett",
 tags: ["hello world", "wuzzup", "booo"],
-description: "Our second blog post is here"
+description: "Our second blog post is here",
+published: false
 }
 
 ---
