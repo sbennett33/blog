@@ -11,7 +11,6 @@ import Config
 # before starting your production server.
 config :blog, BlogWeb.Endpoint,
   url: [scheme: :https, host: "boredwax.com", port: 443],
-  https: [port: 443],
   force_ssl: [hsts: true, rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
