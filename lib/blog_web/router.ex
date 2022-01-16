@@ -52,5 +52,7 @@ defmodule BlogWeb.Router do
 
     get "/", PageController, :index
     get "/:id", PageController, :show
+
+    get "/posts/rss.xml", RssController, :index
   end
 end
