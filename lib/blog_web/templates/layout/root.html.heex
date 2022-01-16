@@ -5,20 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= csrf_meta_tag() %>
+    <%= if assigns[:meta_attrs], do: meta_tags(@meta_attrs) %>
     <%= live_title_tag assigns[:page_title] || "Blog", suffix: " · PatternMatching" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
-  <body class="">
+  <body class="flex flex-col min-h-screen">
     <header class="text-white shadow-sm bg-violet-900 md:sticky md:top-0">
       <section class="container px-4 mx-auto xl:px-0">
-        <nav class="flex items-center justify-between">
-          <div>
-            <ul>
-              <li class="py-4 text-2xl font-extrabold"><%= link "Pattern Matching", to: Routes.page_path(@conn, :index)%></li>
-            </ul>
-          </div>
-          <div>
+        <nav class="flex items-center md:justify-between">
+          <ul class="">
+            <li class="py-4 font-mono text-xl font-bold"><%= link "PatternMatching.io", to: Routes.page_path(@conn, :index) %></li>
+          </ul>
+          <div class="invisible md:visible">
             <ul class="flex">
               <li><%= link "Writing", to: Routes.page_path(@conn, :index)%></li>
             </ul>
@@ -27,5 +26,10 @@
       </section>
     </header>
     <%= @inner_content %>
+    <footer class="text-white bg-violet-900">
+      <section class="container px-4 py-6 mx-auto text-center xl:px-0">
+        © 2002 PatternMatching.io
+      </section>
+    </footer>
   </body>
 </html>

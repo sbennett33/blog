@@ -2,22 +2,23 @@
 
 <div class="mt-4">
   <%= for post <- @posts do %>
-    <div id={post.id} class="mt-6 border-black">
-      <h2 class="text-xl font-bold">
-        <%= link post.title, to: Routes.page_path(@conn, :show, post)%>
-      </h2>
+    <div id={post.id} class="p-6 hover:bg-slate-100">
+      <%= link to: Routes.page_path(@conn, :show, post) do %>
+        <h2 class="text-xl font-bold">
+          <%= raw post.title %>
+        </h2>
 
-      <p class="mt-1 font-semibold">
-        <%= raw post.description %>
-      </p>
+        <p class="mt-1 font-semibold">
+          <%= raw post.description %>
+        </p>
 
-      <div class="flex mt-2">
-        <%= for tag <- post.tags do %>
-          <span class="mr-2 text-sm font-semibold text-violet-900"><%= tag %></span>
-        <% end %>
-      </div>
+        <div class="flex mt-2">
+          <%= for tag <- post.tags do %>
+            <span class="mr-2 text-sm font-semibold text-violet-900"><%= tag %></span>
+          <% end %>
+        </div>
 
-
+      <% end %>
     </div>
   <% end %>
 </div>

@@ -12,7 +12,11 @@ defmodule BlogWeb.PageController do
 
   def show(conn, %{"id" => id}) do
     with {:ok, post} <- Repo.get_post(id) do
-      render(conn, "show.html", post: post)
+      meta_attrs = [
+        %{name: "keywords", content: Enum.join(post.tags, ", ")}
+      ]
+
+      render(conn, "show.html", post: post, page_title: post.title, meta_attrs: meta_attrs)
     end
   end
 end
