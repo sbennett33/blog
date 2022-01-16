@@ -7,6 +7,7 @@
     <%= csrf_meta_tag() %>
     <%= if assigns[:meta_attrs], do: meta_tags(@meta_attrs) %>
     <%= live_title_tag assigns[:page_title] || "Blog", suffix: " · PatternMatching" %>
+    <link rel="alternate" type="application/rss+xml" href={Routes.rss_url(@conn, :index)} />
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
@@ -28,7 +29,16 @@
     <%= @inner_content %>
     <footer class="text-white bg-violet-900">
       <section class="container px-4 py-6 mx-auto text-center xl:px-0">
-        © 2002 PatternMatching.io
+        <ul class="flex items-center justify-between">
+          <li>© 2002 PatternMatching.io</li>
+          <li>
+            <%= link to: Routes.rss_url(@conn, :index) do %>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
+              </svg>
+            <% end %>
+          </li>
+        </ul>
       </section>
     </footer>
   </body>

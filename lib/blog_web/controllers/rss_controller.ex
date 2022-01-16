@@ -16,7 +16,7 @@ defmodule BlogWeb.RssController do
   end
 
   def build_feed(posts, conn) do
-    Feed.new(Routes.page_url(conn, :index), DateTime.utc_now(), "PatternMatching.io RSS")
+    Feed.new(Routes.page_url(conn, :index), DateTime.utc_now(), "PatternMatching.io")
     |> Feed.author(@author)
     |> Feed.link(Routes.rss_url(conn, :index), rel: "self")
     |> Feed.entries(Enum.map(posts, &get_entry(conn, &1)))
