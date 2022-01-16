@@ -11,7 +11,7 @@ defmodule BlogWeb.RssController do
     feed = build_feed(posts, conn)
 
     conn
-    |> put_resp_content_type("text/xml")
+    |> put_resp_content_type("application/rss+xml")
     |> send_resp(200, feed)
   end
 
