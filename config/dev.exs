@@ -57,8 +57,8 @@ config :pattern_matching, PatternMatchingWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/blog_web/(live|views)/.*(ex)$",
-      ~r"lib/blog_web/templates/.*(eex)$",
+      ~r"lib/pattern_matching_web/(live|views)/.*(ex)$",
+      ~r"lib/pattern_matching_web/templates/.*(eex)$",
       ~r"posts/*/.*(md)$"
     ]
   ]

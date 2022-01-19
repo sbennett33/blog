@@ -30,7 +30,7 @@ defmodule PatternMatchingWeb do
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/blog_web/templates",
+        root: "lib/pattern_matching_web/templates",
         namespace: PatternMatchingWeb
 
       # Import convenience functions from controllers
