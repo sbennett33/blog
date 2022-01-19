@@ -51,8 +51,14 @@ defmodule PatternMatchingWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+  end
+
+  scope "/blog", PatternMatchingWeb.Blog, as: :blog do
+    pipe_through :browser
+
+    get "/", PageController, :index
     get "/:id", PageController, :show
 
-    get "/posts/rss.xml", RssController, :index
+    get "/all/rss.xml", RssController, :index
   end
 end

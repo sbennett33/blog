@@ -1,0 +1,15 @@
+<article class="lg:mt-8">
+  <h1 class="text-3xl font-extrabold lg:text-4xl"><%= @post.title %></h1>
+
+  <div class="flex mt-8">
+    <img class="object-cover w-12 h-12 rounded-full" src="/images/avatar.png"/>
+    <ul class="ml-3">
+      <li class="font-semibold">Scott Bennett</li>
+      <li><%= @post.date %></li>
+    </ul>
+  </div>
+
+  <div class="pb-12 mt-8 font-serif prose-sm prose prose-violet md:prose-xl lg:mt-8">
+    <%= raw @post.body %>
+  </div>
+</article>

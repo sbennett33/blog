@@ -3,7 +3,7 @@
 <div class="mt-4">
   <%= for post <- @posts do %>
     <div id={post.id} class="p-6 hover:bg-slate-100">
-      <%= link to: Routes.page_path(@conn, :show, post) do %>
+      <%= link to: Routes.blog_page_path(@conn, :show, post) do %>
         <h2 class="text-xl font-bold">
           <%= raw post.title %>
         </h2>
