@@ -1,5 +1,5 @@
-defmodule BlogWeb.PageControllerTest do
-  use BlogWeb.ConnCase
+defmodule PatternMatchingWeb.PageControllerTest do
+  use PatternMatchingWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")

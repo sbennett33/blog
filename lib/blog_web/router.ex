@@ -1,11 +1,11 @@
-defmodule BlogWeb.Router do
-  use BlogWeb, :router
+defmodule PatternMatchingWeb.Router do
+  use PatternMatchingWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, {BlogWeb.LayoutView, :root}
+    plug :put_root_layout, {PatternMatchingWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -15,7 +15,7 @@ defmodule BlogWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", BlogWeb do
+  # scope "/api", PatternMatchingWeb do
   #   pipe_through :api
   # end
 
@@ -31,7 +31,7 @@ defmodule BlogWeb.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: BlogWeb.Telemetry
+      live_dashboard "/dashboard", metrics: PatternMatchingWeb.Telemetry
     end
   end
 
@@ -47,7 +47,7 @@ defmodule BlogWeb.Router do
     end
   end
 
-  scope "/", BlogWeb do
+  scope "/", PatternMatchingWeb do
     pipe_through :browser
 
     get "/", PageController, :index

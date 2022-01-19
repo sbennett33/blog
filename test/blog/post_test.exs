@@ -1,7 +1,7 @@
-defmodule Blog.PostTest do
+defmodule PatternMatching.PostTest do
   use ExUnit.Case
 
-  alias Blog.Post
+  alias PatternMatching.Post
 
   describe "compile/1" do
     test "creates a post struct from a file" do

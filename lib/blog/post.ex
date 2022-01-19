@@ -1,4 +1,4 @@
-defmodule Blog.Post do
+defmodule PatternMatching.Post do
   @enforce_keys [:id, :author, :title, :body, :description, :tags, :date, :published]
   defstruct [:id, :author, :title, :body, :description, :tags, :date, :published]
 

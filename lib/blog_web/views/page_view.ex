@@ -1,3 +1,3 @@
-defmodule BlogWeb.PageView do
-  use BlogWeb, :view
+defmodule PatternMatchingWeb.PageView do
+  use PatternMatchingWeb, :view
 end

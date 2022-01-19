@@ -1,6 +1,6 @@
-defmodule Blog do
+defmodule PatternMatching do
   @moduledoc """
-  Blog keeps the contexts that define your domain
+  PatternMatching keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

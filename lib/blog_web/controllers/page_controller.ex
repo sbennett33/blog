@@ -1,9 +1,9 @@
-defmodule BlogWeb.PageController do
-  use BlogWeb, :controller
+defmodule PatternMatchingWeb.PageController do
+  use PatternMatchingWeb, :controller
 
-  alias Blog.Repo
+  alias PatternMatching.Repo
 
-  action_fallback BlogWeb.FallbackController
+  action_fallback PatternMatchingWeb.FallbackController
 
   def index(conn, _params) do
     posts = Repo.all_posts()

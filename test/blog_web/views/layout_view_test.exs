@@ -1,5 +1,5 @@
-defmodule BlogWeb.LayoutViewTest do
-  use BlogWeb.ConnCase, async: true
+defmodule PatternMatchingWeb.LayoutViewTest do
+  use PatternMatchingWeb.ConnCase, async: true
 
   # When testing helpers, you may want to import Phoenix.HTML and
   # use functions such as safe_to_string() to convert the helper

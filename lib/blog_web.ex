@@ -1,12 +1,12 @@
-defmodule BlogWeb do
+defmodule PatternMatchingWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use BlogWeb, :controller
-      use BlogWeb, :view
+      use PatternMatchingWeb, :controller
+      use PatternMatchingWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,11 +19,11 @@ defmodule BlogWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: BlogWeb
+      use Phoenix.Controller, namespace: PatternMatchingWeb
 
       import Plug.Conn
-      import BlogWeb.Gettext
-      alias BlogWeb.Router.Helpers, as: Routes
+      import PatternMatchingWeb.Gettext
+      alias PatternMatchingWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -31,7 +31,7 @@ defmodule BlogWeb do
     quote do
       use Phoenix.View,
         root: "lib/blog_web/templates",
-        namespace: BlogWeb
+        namespace: PatternMatchingWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -45,7 +45,7 @@ defmodule BlogWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {BlogWeb.LayoutView, "live.html"}
+        layout: {PatternMatchingWeb.LayoutView, "live.html"}
 
       unquote(view_helpers())
     end
@@ -72,7 +72,7 @@ defmodule BlogWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import BlogWeb.Gettext
+      import PatternMatchingWeb.Gettext
     end
   end
 
@@ -87,9 +87,9 @@ defmodule BlogWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import BlogWeb.ErrorHelpers
-      import BlogWeb.Gettext
-      alias BlogWeb.Router.Helpers, as: Routes
+      import PatternMatchingWeb.ErrorHelpers
+      import PatternMatchingWeb.Gettext
+      alias PatternMatchingWeb.Router.Helpers, as: Routes
     end
   end
 

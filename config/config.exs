@@ -8,10 +8,10 @@
 import Config
 
 # Configures the endpoint
-config :blog, BlogWeb.Endpoint,
+config :pattern_matching, PatternMatchingWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: BlogWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: Blog.PubSub,
+  render_errors: [view: PatternMatchingWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: PatternMatching.PubSub,
   live_view: [signing_salt: "Qy8g64wd"]
 
 # Configures the mailer
@@ -21,7 +21,7 @@ config :blog, BlogWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :blog, Blog.Mailer, adapter: Swoosh.Adapters.Local
+config :pattern_matching, PatternMatching.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false

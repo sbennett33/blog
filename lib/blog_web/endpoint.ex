@@ -1,5 +1,5 @@
-defmodule BlogWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :blog
+defmodule PatternMatchingWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :pattern_matching
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
@@ -18,7 +18,7 @@ defmodule BlogWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :blog,
+    from: :pattern_matching,
     gzip: false,
     only: ~w(assets fonts images favicon.ico robots.txt)
 
@@ -45,5 +45,5 @@ defmodule BlogWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug BlogWeb.Router
+  plug PatternMatchingWeb.Router
 end

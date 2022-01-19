@@ -1,5 +1,5 @@
-defmodule BlogWeb.LayoutView do
-  use BlogWeb, :view
+defmodule PatternMatchingWeb.LayoutView do
+  use PatternMatchingWeb, :view
 
   # Phoenix LiveDashboard is available only in development by default,
   # so we instruct Elixir to not warn if the dashboard route is missing.

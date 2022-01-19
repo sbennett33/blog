@@ -1,7 +1,7 @@
-defmodule BlogWeb.RssController do
-  use BlogWeb, :controller
+defmodule PatternMatchingWeb.RssController do
+  use PatternMatchingWeb, :controller
 
-  alias Blog.{Repo, Post}
+  alias PatternMatching.{Repo, Post}
   alias Atomex.{Feed, Entry}
 
   @author "Scott Bennett"

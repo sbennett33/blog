@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= csrf_meta_tag() %>
     <%= if assigns[:meta_attrs], do: meta_tags(@meta_attrs) %>
-    <%= live_title_tag assigns[:page_title] || "Blog", suffix: " · PatternMatching" %>
+    <%= live_title_tag assigns[:page_title] || "PatternMatching", suffix: " · PatternMatching" %>
     <link rel="alternate" type="application/rss+xml" href={Routes.rss_url(@conn, :index)} />
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>

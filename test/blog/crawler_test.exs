@@ -1,8 +1,8 @@
-defmodule Blog.CrawlerTest do
+defmodule PatternMatching.CrawlerTest do
   use ExUnit.Case
 
-  alias Blog.Crawler
-  alias Blog.Post
+  alias PatternMatching.Crawler
+  alias PatternMatching.Post
 
   describe "crawl/1" do
     test "compiles list of posts" do

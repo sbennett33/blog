@@ -1,3 +1,3 @@
-defmodule BlogWeb.PageViewTest do
-  use BlogWeb.ConnCase, async: true
+defmodule PatternMatchingWeb.PageViewTest do
+  use PatternMatchingWeb.ConnCase, async: true
 end

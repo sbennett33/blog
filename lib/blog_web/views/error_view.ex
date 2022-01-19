@@ -1,5 +1,5 @@
-defmodule BlogWeb.ErrorView do
-  use BlogWeb, :view
+defmodule PatternMatchingWeb.ErrorView do
+  use PatternMatchingWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

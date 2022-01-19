@@ -1,9 +1,9 @@
-defmodule Blog.Repo do
-  alias Blog.Post
+defmodule PatternMatching.Repo do
+  alias PatternMatching.Post
 
   use NimblePublisher,
     build: Post,
-    from: Application.app_dir(:blog, "priv/posts/**/*.md"),
+    from: Application.app_dir(:pattern_matching, "priv/posts/**/*.md"),
     as: :posts,
     highlighters: [:makeup_elixir],
     earmark_options: [footnotes: true]
